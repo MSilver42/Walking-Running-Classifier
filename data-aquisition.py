@@ -51,7 +51,13 @@ for file in walking_files:
     temp = pd.read_csv(file)
     if walking_df.empty:
         walking_df = temp
+        # delete first and last 2 seconds of data
+        walking_df = walking_df.drop(walking_df.index[0:200])
+        walking_df = walking_df.drop(walking_df.index[-200:])
     else:
+        # delete first and last 2 seconds of data
+        temp = temp.drop(temp.index[0:200])
+        temp = temp.drop(temp.index[-200:])
         walking_df = pd.concat([walking_df, temp])
 
 
