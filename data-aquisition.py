@@ -37,7 +37,7 @@ def h5_tree(val, pre=''):
 
 
 jumping_df = pd.DataFrame
-jumping_files = ['mason-jumping-1.csv']
+jumping_files = ['mason-jumping-1.csv', 'Carter_jumping.csv']
 for file in jumping_files:
     temp = pd.read_csv(file)
     if jumping_df.empty:
@@ -46,7 +46,7 @@ for file in jumping_files:
         jumping_df = pd.concat([jumping_df, temp])
 
 walking_df = pd.DataFrame
-walking_files = ['mason-walking-1.csv']
+walking_files = ['mason-walking-1.csv', 'Carter_walking.csv']
 for file in walking_files:
     temp = pd.read_csv(file)
     if walking_df.empty:
