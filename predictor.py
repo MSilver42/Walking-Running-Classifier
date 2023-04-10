@@ -141,6 +141,3 @@ def feature_extraction(data):
     temp = np.array(temp)
     temp = temp.reshape(data.shape[0], 4, 7)
     return temp
-
-
-predict('test (2).csv')
