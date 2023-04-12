@@ -19,7 +19,7 @@ class UI(tk.Frame):
     def __init__(self, master=None):
         super().__init__(master)
         self.master = master
-        self.master.title("Walking and Jumping")
+        self.master.title("Walking and Jumping!")
         self.pack()
         self.create_widgets()
 
@@ -36,6 +36,9 @@ class UI(tk.Frame):
         self.predict_button.pack(side="top")
         
         self.quit_button = tk.Button(self, text="Exit", fg="red", command=self.master.destroy)
+        self.quit_button.pack(side="bottom")
+        
+        self.quit_button = tk.Label(self, text="Project Developed by: Amy Li, Mason Silver, Carter Conboy")
         self.quit_button.pack(side="bottom")
 
     # finding input files
