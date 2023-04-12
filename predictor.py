@@ -36,9 +36,14 @@ def predict(csv_file):
     for chunk in chunks:
         chunk[:,0] = np.linspace(0, 5, chunk.shape[0])
     
+    # extract features
+    features = feature_extraction(chunks)
+
     # flatten 
     chunks = np.array([i.flatten() for i in chunks])
 
+    # add features to chunks
+    chunks = np.concatenate((chunks, features), axis=1)
     
     # Predict the output
     predictions = model.predict(chunks)
@@ -139,7 +144,7 @@ def feature_extraction(data):
         for j in range(1,5):
             temp.append([np.max(i[:, j]), np.min(i[:, j]), np.ptp(i[:, j]), np.mean(i[:, j]), np.median(i[:, j]), np.var(i[:, j]), np.std(i[:, j])])
     temp = np.array(temp)
-    temp = temp.reshape(data.shape[0], 4, 7)
+    temp = temp.reshape(data.shape[0], 28)
     return temp
 
 
