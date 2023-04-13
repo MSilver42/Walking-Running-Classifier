@@ -108,16 +108,6 @@ class UI(tk.Frame):
             
             accuracy = model.score(chunks, predictions)
             accuracy_str = f"Accuracy: {accuracy:.4f}"
-
-            #show accuracy in UI
-            if hasattr(self, 'accuracy_label'):
-                self.accuracy_label.config(text=accuracy_str)
-            else:
-                self.accuracy_label = tk.Label(self, text=accuracy_str)
-                self.accuracy_label.pack()
-
-                print("Accuracy: ", model.score(chunks, predictions))
-                print(temp)
             
             #plotting figure of predictions vs. time
             fig = plt.Figure(figsize=(8, 4), dpi=150)
